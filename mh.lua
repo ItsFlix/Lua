@@ -23,7 +23,7 @@ bp = p.Backpack
 pg = p.PlayerGui
 c =  p.Character
 he = c.Head
-t = c.Torso
+t = c.HumanoidRootPart
 hu = c.Humanoid
 mou =  nil
 re(c,"gay")
@@ -322,8 +322,8 @@ for  i,v in pairs(ob:children()) do
 if v:IsA("BasePart") and  v.Parent.Parent:findFirstChild("Humanoid") == nil and  v.Parent:findFirstChild("Humanoid") == nil and (v.Position - pos).magnitude <  mag*1.3 and v.Anchored == false and v:GetMass() < 150 then  
 v:BreakJoints() v.Velocity = cf(pos,v.Position).lookVector*forc
 end
-if  v:IsA("Humanoid") and v ~= hu and v.Parent:findFirstChild("Torso") then 
-if  (pos - v.Parent.Torso.Position).magnitude < mag then local tdmg =  dmg*ra(1,rndmg) 
+if  v:IsA("Humanoid") and v ~= hu and v.Parent:findFirstChild("HumanoidRootPart") then 
+if  (pos - v.Parent.HumanoidRootPart.Position).magnitude < mag then local tdmg =  dmg*ra(1,rndmg) 
 if v.Parent:findFirstChild("Hh") == nil then local hh=  Instance.new("NumberValue",v.Parent) hh.Name = "Hh"
 hh.Value = v.Health -  tdmg else v.Parent.Hh.Value = v.Health - (tdmg*3.5) end 
 v.Health =  v.Parent.Hh.Value if v.Parent.Hh.Value < 1 then v.Parent:BreakJoints() end  
@@ -445,8 +445,8 @@ end
 GrabWeld =  it("Weld",m)
 Palm.Touched:connect(function(touch)
 if true then return end
-if Anim.a == "Ride" and  GrabWeld.Part1 == nil and touch.Parent:findFirstChild("Torso") and  touch.Parent:findFirstChild("Humanoid") then
-local tor = touch.Parent.Torso  touch.Parent.Humanoid.PlatformStand = true 
+if Anim.a == "Ride" and  GrabWeld.Part1 == nil and touch.Parent:findFirstChild("HumanoidRootPart") and  touch.Parent:findFirstChild("Humanoid") then
+local tor = touch.Parent.HumanoidRootPart  touch.Parent.Humanoid.PlatformStand = true 
 GrabWeld.Part0 = Palm  GrabWeld.Part1 = tor GrabWeld.C0 = cf(-3*s,4.5*s,-Palm.Size.x/2) GrabWeld.C1 =  ca(0,rd(90),rd(-90)) *ca(0,rd(0),0)
 end
 end)
