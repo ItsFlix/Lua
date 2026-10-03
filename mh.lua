@@ -1,4 +1,4 @@
---v3 b
+--v4 b
 
 wt  = 0.05 s = script it = Instance.new v3 = Vector3.new c3 = Color3.new ud =  UDim2.new cf = CFrame.new ca = CFrame.Angles pi = math.pi rd = math.rad
 bc =  BrickColor.new ab = math.abs de = math.deg ts = tostring tn = tonumber ti =  table.insert tr = table.remove 
@@ -341,7 +341,7 @@ local tyms = 0
 repeat
 tyms = tyms +  2
 local bhit,bpos = ray(bullet.Position,bullet.Position - (bullet.CFrame  *cf(0,0,-1)).p) 
-if bpos ~= nil and (bpos - bullet.Position).magnitude < 7  then bullethit = true else bullet.CFrame = bullet.CFrame *cf(0,0,-1*0.75)  *ca(rd(-0.0025),rd(0),0) end 
+if bpos ~= nil and (bpos - bullet.Position).magnitude < 7  then bullethit = true else bullet.CFrame = bullet.CFrame *cf(0,0,-1*0.5)  *ca(rd(-0.0025),rd(0),0) end 
 if tyms%32 == 0 then wait() end 
 until  bullethit or bullet.Position.y < -300 or tyms > 800 
 bullet.CFrame =  bullet.CFrame *cf(0,0,8) bullet:Remove()
@@ -436,7 +436,7 @@ end
 end))
 
 function  FireFinger(lasercol,ffingz,targ,typez,siz,dmg,rndmg,forc)  coroutine.resume(coroutine.create(function() 
-local laser =  pa(m,"Block",fingwide*1.3,fingwide*1.3,fingwide*2.5,true,false,1,1,lasercol)  spm("Sphere",laser,1+(siz/5.5)) laser.Name = "Projectile"
+local laser =  pa(m,"Block",fingwide*1.3,fingwide*1.3,fingwide*2.5,true,false,0,0,lasercol)  spm("Sphere",laser,1+(siz/5.5)) laser.Name = "Projectile"
 local lw =  weld(laser,ffingz,laser,0,ffingz.Size.y/0.8 +(siz/2.5),0,rd(90),0,0)
 for  i=1,0.4,-0.05 do laser.Transparency = i wait() end  
 BlastWave(ffingz.CFrame*cf(0,ffingz.Size.y*1.3,0)*ca(0,0,0),ffingz.Size.x*1.6,1.8,LaserCol2)
