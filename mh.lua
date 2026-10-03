@@ -1,4 +1,4 @@
---edited by ur sister
+--v3 b
 
 wt  = 0.05 s = script it = Instance.new v3 = Vector3.new c3 = Color3.new ud =  UDim2.new cf = CFrame.new ca = CFrame.Angles pi = math.pi rd = math.rad
 bc =  BrickColor.new ab = math.abs de = math.deg ts = tostring tn = tonumber ti =  table.insert tr = table.remove 
@@ -341,7 +341,7 @@ local tyms = 0
 repeat
 tyms = tyms +  2
 local bhit,bpos = ray(bullet.Position,bullet.Position - (bullet.CFrame  *cf(0,0,-1)).p) 
-if bpos ~= nil and (bpos - bullet.Position).magnitude < 7  then bullethit = true else bullet.CFrame = bullet.CFrame *cf(0,0,-1*s)  *ca(rd(-0.0025),rd(0),0) end 
+if bpos ~= nil and (bpos - bullet.Position).magnitude < 7  then bullethit = true else bullet.CFrame = bullet.CFrame *cf(0,0,-1*0.75)  *ca(rd(-0.0025),rd(0),0) end 
 if tyms%32 == 0 then wait() end 
 until  bullethit or bullet.Position.y < -300 or tyms > 800 
 bullet.CFrame =  bullet.CFrame *cf(0,0,8) bullet:Remove()
