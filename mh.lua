@@ -1,3 +1,4 @@
+--edited by ur sister
 
 wt  = 0.05 s = script it = Instance.new v3 = Vector3.new c3 = Color3.new ud =  UDim2.new cf = CFrame.new ca = CFrame.Angles pi = math.pi rd = math.rad
 bc =  BrickColor.new ab = math.abs de = math.deg ts = tostring tn = tonumber ti =  table.insert tr = table.remove 
@@ -259,7 +260,7 @@ sw.CFrame = sw.CFrame  *cf(0,sw.Size.y/25,0) sw.Transparency = x/25 - 0.1 swm.Sc
 end sw:Remove()
 end)) end  
 wait(0.3)
-DmgHumanoidsNear(pos.p,dmg,rndmg,5.5*s*(siz/4),forc)
+--DmgHumanoidsNear(pos.p,dmg,rndmg,5.5*s*(siz/4),forc)
 end))
 end
  
@@ -313,7 +314,7 @@ end))
 end  
 end))
 wait(0.1)
-DmgHumanoidsNear(pos,dmg,rndmg,5.5*s*siz,forc)
+--DmgHumanoidsNear(pos,dmg,rndmg,5.5*s*siz,forc)
 end
  
 function  DmgHumanoidsNear(pos,dmg,rndmg,mag,forc) 
@@ -394,7 +395,7 @@ b1.CFrame =  Palm.CFrame *cf(0,3*s,-11*s)
 b3.CFrame = cf(bpos) local lenz = (b1.Position  - b3.Position).magnitude 
 b2.CFrame = cf(b1.Position,b3.Position)  *ca(rd(90),0,0) *cf(0,-lenz/2,0) b2m.Scale = v3(1,lenz,1)
 b1.CFrame =  b1.CFrame + beamoffset b2.CFrame = b2.CFrame + beamoffset b3.CFrame = b3.CFrame  + beamoffset 
-if ts%10 == 0 then  DmgHumanoidsNear(b3.Position,3,10,(14*s)+2,100)  Explode(b3.CFrame*cf(0,b3.Size.y/3,0),25*s,LaserCol2) end
+if ts%10 == 0 then    Explode(b3.CFrame*cf(0,b3.Size.y/3,0),25*s,LaserCol2) end --DmgHumanoidsNear(b3.Position,3,10,(14*s)+2,100)
 wait() until not  Button or ts > 600
 coroutine.resume(coroutine.create(function() for  xk=0.1,1.1,0.08 do wait() b1.Transparency = xk b2.Transparency = xk  b3.Transparency = xk end b1:Remove() b2:Remove() b3:Remove()  end))
 coroutine.resume(coroutine.create(function() for xk=0.5,1.1,0.02 do  wait() for i=1,#dias do dias.Transparency =xk end end end))
@@ -433,6 +434,7 @@ end end  end
 wait(0.05)
 end 
 end))
+
 function  FireFinger(lasercol,ffingz,targ,typez,siz,dmg,rndmg,forc)  coroutine.resume(coroutine.create(function() 
 local laser =  pa(m,"Block",fingwide*1.3,fingwide*1.3,fingwide*2.5,true,false,0,0,lasercol)  spm("Sphere",laser,1+(siz/5.5)) laser.Name = "Projectile"
 local lw =  weld(laser,ffingz,laser,0,ffingz.Size.y/0.8 +(siz/2.5),0,rd(90),0,0)
@@ -442,6 +444,7 @@ lw:Remove()  laser.CFrame = cf(laser.Position,targ)
 Fire(laser,typez,siz,dmg,rndmg,forc)  
 end))
 end
+
 GrabWeld =  it("Weld",m)
 Palm.Touched:connect(function(touch)
 if true then return end
@@ -502,7 +505,7 @@ end)
 mouse.Button1Down:connect(function()
 if  Anim.a == "None" or Anim.b ~= "None" then return end 
 if Anim.a == "Gun"  then
-Anim.b = "Gun" FireFinger(LaserCol,pPoint3,mouse.Hit.p,1,2.25,1,10,60)  FireFinger(LaserCol,pMid3,mouse.Hit.p,1,2.25) wait(1) Anim.b = "None"
+Anim.b = "Gun" FireFinger(LaserCol,pPoint3,mouse.Hit.p,1,2.25,0,0,0)  FireFinger(LaserCol,pMid3,mouse.Hit.p,1,2.25,0,0,0) wait(1) Anim.b = "None"
 elseif  Anim.a == "Fu" then
 Anim.b = "Fu"  FireFinger(LaserCol,pMid3,mouse.Hit.p,1,3.65,2,14,95) wait(0.25) Anim.b =  "None"
 elseif Anim.a == "Fist" then 
@@ -514,7 +517,7 @@ wait(0.45)
 PalmLev.position = bpos + ((Palm.CFrame  *cf(0,1*s,0)).p - Palm.Position)
 local tz = 0 repeat wait()  BlastWave(Palm.CFrame*ca(rd(180),0,0),8*s,3.5,HCol) tz = tz + wait() until  (PalmLev.position - Palm.Position).magnitude < 8*s or tz >  1
 Explode(Palm.CFrame *cf(0,6*s,0)  *ca(rd(180),0,0),15*s,ts(bhit.BrickColor))
-DmgHumanoidsNear((Palm.CFrame  *cf(0,8,0)).p,3,10,(12*s)+2,105)
+--DmgHumanoidsNear((Palm.CFrame  *cf(0,8,0)).p,3,10,(12*s)+2,105)
 if not bhit.Anchored then PalmLev.position =  (Palm.CFrame *cf(0,12*s,0)).p wait(0.5) end 
 wait(1) Posing = "Follow" Anim.b  = "None"
 elseif Anim.a == "Splat" then
@@ -534,7 +537,7 @@ wait()
 end wait(0.2)
 local cr =  pa(m,"Block",16*s,0,16*s,false,false,1,0,"") cr.Anchored = true cr.CFrame =  cf(bpos) *ca(0,rd(ra(-360,360)),0)
 local de = it("Decal",cr) de.Face = "Top"  de.Texture = asset .. Decs.Crack  Serv.d:AddItem(cr,16)
-DmgHumanoidsNear((Palm.CFrame  *cf(0,0,-1)).p,3,20,(15*s)+2,110)
+--DmgHumanoidsNear((Palm.CFrame  *cf(0,0,-1)).p,3,20,(15*s)+2,110)
 ShockWave(Palm.CFrame  *ca(rd(90),0,0),25*s,LaserCol)
 wait(1) Posing = "Follow" Anim.b =  "None"
 elseif Anim.a == "Ride" and Button == false then
@@ -571,7 +574,7 @@ local cr =  pa(m,"Block",22*s,0,22*s,false,false,1,0,"") cr.Anchored = true cr.C
 local de = it("Decal",cr) de.Face = "Top"  de.Texture = asset .. Decs.Crack  Serv.d:AddItem(cr,16)
 Dustplosion(Palm.CFrame *cf(2*s,0,0)  *ca(rd(90),0,rd(90)),30*s,{"Really red","Really black","Really  red"},3)
 ShockWave(Palm.CFrame *cf(2*s,0,0)  *ca(rd(90),0,rd(90)),20*s,ts(bhit.BrickColor))
-DmgHumanoidsNear((Palm.CFrame  *cf(0,1,0)).p,1,20,(15*s)+2,90) wait(0.2)
+--DmgHumanoidsNear((Palm.CFrame  *cf(0,1,0)).p,1,20,(15*s)+2,90) wait(0.2)
 local palmcf = cf(bpos) local  earthsplos = ra(5,8) palmcf = Palm.CFrame *ca(0,rd(90),0)  *ca(rd(-90),0,rd(0))
 for i=1,earthsplos do Earthsplosion(palmcf  *cf(0,-2*s,((i*7)+7)*s),10,1,20,75) wait(0.1) end 
 Earthsplosion(palmcf  *cf(0,-2*s,(((earthsplos+1)*7)+7)*s),16,2,25,75)
